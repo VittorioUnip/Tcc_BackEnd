@@ -3,14 +3,21 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.automap import automap_base
 import gunicorn
 import pymysql
+import pg8000
 
+## Faz com que ações envolvendo MySQL sejam interpretadas pelo pymysql
 pymysql.install_as_MySQLdb()
+
+#pg8000.
+
+
 
 app = Flask(__name__)
 
 ## Endereço da database
-## Desabilitado para testar conexão com Render
-link = 'mysql+pymysql://root:biboboy29@localhost:3306/e_commerce_db'
+
+#link = 'mysql+pymysql://root:biboboy29@localhost:3306/e_commerce_db'
+link = 'mysql+pymysql://root:biboboy29@127.0.0.1:3306/e_commerce_db'
 
 ## Conexão para a database pela utilização do SQLAlchemy
 ## Desabilitado para testar conexão com Render
