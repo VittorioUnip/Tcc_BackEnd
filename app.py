@@ -10,11 +10,11 @@ app = Flask(__name__)
 
 ## Endereço da database
 ## Desabilitado para testar conexão com Render
-#link = 'mysql+pymysql://root:biboboy29@localhost:3306/e_commerce_db'
+link = 'mysql+pymysql://https://github.com/VittorioUnip/Tcc_BackEnd/blob/master/dbteste.sql/e_commerce_db'
 
 ## Conexão para a database pela utilização do SQLAlchemy
 ## Desabilitado para testar conexão com Render
-#app.config['SQLALCHEMY_DATABASE_URI'] = link
+app.config['SQLALCHEMY_DATABASE_URI'] = link
 
 ## Instrução para o jsonify não colocar os itens em ordem alfabética
 app.json.sort_keys = False
