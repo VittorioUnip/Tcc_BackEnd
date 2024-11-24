@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.automap import automap_base
+import gunicorn
 import pymysql
 
 pymysql.install_as_MySQLdb()
@@ -8,10 +9,12 @@ pymysql.install_as_MySQLdb()
 app = Flask(__name__)
 
 ## Endereço da database
-link = 'mysql+pymysql://root:biboboy29@localhost:3306/e_commerce_db'
+## Desabilitado para testar conexão com Render
+#link = 'mysql+pymysql://root:biboboy29@localhost:3306/e_commerce_db'
 
 ## Conexão para a database pela utilização do SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = link
+## Desabilitado para testar conexão com Render
+#app.config['SQLALCHEMY_DATABASE_URI'] = link
 
 ## Instrução para o jsonify não colocar os itens em ordem alfabética
 app.json.sort_keys = False
@@ -146,7 +149,11 @@ def index():
 
     return '<h1>Bem Vindo ao Banco!</h1> <br> <img src = "https://media.istockphoto.com/id/513921039/photo/illustration-of-a-oool-yellow-smiley-with-sunglasses.jpg?s=612x612&w=0&k=20&c=hhVQxXTUhmcZLv2QrZ2WE2p7inzxQIA5H6XP8jPrQXw=" alt="Smile">'
 
+##Roda o flask quando eu executo o código (da para colocar ele em debug)
+if __name__ == '__main__':
+    app.run()
 
+## Enviroment = EnviromentTest
 
 
 
@@ -193,6 +200,6 @@ def index():
 
     #return '<h1>Produto adicionado</h1>'
 
-##Roda o flask quando eu executo o código (debug)
-#if __name__ == '__main__':
-   # app.run(debug=True)
+##Roda o flask quando eu executo o código (da para colocar ele em debug)
+if __name__ == '__main__':
+    app.run()
