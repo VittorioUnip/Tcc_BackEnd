@@ -25,7 +25,7 @@ linkint = 'postgresql://render_backend_banco_user:y7s40T51Q7UdHrIStnpMC7SWKBXSx7
 
 ## Conexão para a database pela utilização do SQLAlchemy
 ## Desabilitado para testar conexão com Render
-app.config['SQLALCHEMY_DATABASE_URI'] = linkext
+app.config['SQLALCHEMY_DATABASE_URI'] = linkint
 
 ## Instrução para o jsonify não colocar os itens em ordem alfabética
 app.json.sort_keys = False
@@ -194,9 +194,9 @@ if __name__ == '__main__':
 
 
 ## Adiciona uma categoria (debug)
-@app.route('/add/c', methods = ['POST'])
+@app.route('/add/c')
 def add_category():
-    new_category = Categories(category_name = 'Tênis', category_description = 'Diversos tênis e várias marcas disponíveis.', category_image = 'https://github.com/ViniciusOkaeda/e-commerce-ra-mobile/blob/main/src/Assets/tenis.png?raw=true' )
+    new_category = Categories(category_name = 'Gorros', category_description = 'Diversos gorros e várias marcas disponíveis.', category_image = 'https://raw.githubusercontent.com/ViniciusOkaeda/e-commerce-ra-mobile/refs/heads/main/src/Assets/gorro.png' )
     db.session.add(new_category)
     db.session.commit()
 
