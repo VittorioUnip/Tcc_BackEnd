@@ -194,13 +194,13 @@ if __name__ == '__main__':
 
 
 ## Adiciona uma categoria (debug)
-#@app.route('/add/c')
-#def add_category():
-    #new_category = Categories(category_name = 'Categoria 2', category_description = 'Descrição da Categoria 2', categor y_image = 'imagem da categoria 2' )
-    #db.session.add(new_category)
-    #db.session.commit()
+@app.route('/add/c')
+def add_category():
+    new_category = Categories(category_name = 'Categoria 2', category_description = 'Descrição da Categoria 2', category_image = 'imagem da categoria 2' )
+    db.session.add(new_category)
+    db.session.commit()
 
-    #return '<h1>Categoria Inserida!</h1>'
+    return '<h1>Categoria Inserida!</h1>'
 
 ## Adiciona um produto (debug)
 #@app.route('/add/p', methods = ['POST'])
