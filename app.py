@@ -3,12 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.automap import automap_base
 import gunicorn
 import pymysql
-import pg8000
+import psycopg2
+
 
 ## Faz com que ações envolvendo MySQL sejam interpretadas pelo pymysql
-pymysql.install_as_MySQLdb()
-
-#pg8000.
+#pymysql.install_as_MySQLdb()
 
 
 
@@ -17,7 +16,7 @@ app = Flask(__name__)
 ## Endereço da database
 
 #link = 'mysql+pymysql://root:biboboy29@localhost:3306/e_commerce_db'
-link = 'mysql+pymysql://root:biboboy29@127.0.0.1:3306/e_commerce_db'
+link = 'postgresql://render_backend_banco_user:y7s40T51Q7UdHrIStnpMC7SWKBXSx7zI@dpg-ct1qrthopnds73fmo83g-a.oregon-postgres.render.com/render_backend_banco'
 
 ## Conexão para a database pela utilização do SQLAlchemy
 ## Desabilitado para testar conexão com Render
