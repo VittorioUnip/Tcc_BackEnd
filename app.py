@@ -16,11 +16,16 @@ app = Flask(__name__)
 ## Endereço da database
 
 #link = 'mysql+pymysql://root:biboboy29@localhost:3306/e_commerce_db'
-link = 'postgresql://render_backend_banco_user:y7s40T51Q7UdHrIStnpMC7SWKBXSx7zI@dpg-ct1qrthopnds73fmo83g-a.oregon-postgres.render.com/render_backend_banco'
+
+## Este endereço é para utilização externa do banco
+linkext = 'postgresql://render_backend_banco_user:y7s40T51Q7UdHrIStnpMC7SWKBXSx7zI@dpg-ct1qrthopnds73fmo83g-a.oregon-postgres.render.com/render_backend_banco'
+
+## Enquanto esse é para interna
+linkint = 'postgresql://render_backend_banco_user:y7s40T51Q7UdHrIStnpMC7SWKBXSx7zI@dpg-ct1qrthopnds73fmo83g-a/render_backend_banco'
 
 ## Conexão para a database pela utilização do SQLAlchemy
 ## Desabilitado para testar conexão com Render
-app.config['SQLALCHEMY_DATABASE_URI'] = link
+app.config['SQLALCHEMY_DATABASE_URI'] = linkint
 
 ## Instrução para o jsonify não colocar os itens em ordem alfabética
 app.json.sort_keys = False
