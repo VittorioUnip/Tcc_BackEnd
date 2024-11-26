@@ -104,7 +104,7 @@ def get_favorites_by_user(user_id):
         return 'oops'
 
 ## Adiciona um produto na lista de favoritos de um usuário,verificando se o produto existe ou já está adicionado a lista de favoritos do usuario.
-@app.route('/<user_id>/favorites/add/<products_id>', methods = ['POST'])
+@app.route('/<user_id>/favorites/add/<products_id>', methods = ['GET'])
 def add_favorite(user_id, products_id):
     check_user_id = db.session.query(Users).get_or_404(user_id)
     print(check_user_id)
@@ -127,7 +127,7 @@ def add_favorite(user_id, products_id):
                 return 'Produto já existe nos favoritos'
 
 ## Remove um produto da lista de favoritos de um um usuario, verificando se o produto está realmente lá para ser deletado.
-@app.route('/<user_id>/favorites/remove/<products_id>', methods = ['DELETE'])
+@app.route('/<user_id>/favorites/remove/<products_id>', methods = ['GET'])
 def remove_favorite(user_id, products_id):
     check_user_id = db.session.query(Users).get_or_404(user_id)
     print(user_id)
@@ -150,10 +150,14 @@ def remove_favorite(user_id, products_id):
 ## Exibe as imagens dos produtos junto com seu nome e preço
 @app.route('/homepage', methods=['GET'])
 def display_homepage():
-    highlights = db.session.query(Products_Images.products_images).all()
-    names = db.session.query(Products.products_name).all()
+    highlights = db.session.query(Products_Images, Products).join(Products).all()
 
-    return jsonify([[{h.products_images, '<br>', n.products_name, '<br>', n.products_price} for n in names]for h in highlights])
+    for products_images, products in highlights:
+        print(products_images.products_images, products.products_name)
+        return jsonify('Agora vai?')
+
+
+
 
 
 
