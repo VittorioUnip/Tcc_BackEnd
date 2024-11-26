@@ -50,6 +50,8 @@ Favorites = Base.classes.favorites
 
 Sizes = Base.classes.sizes
 Colors = Base.classes.colors
+Products_Sizes = Base.classes.products_sizes
+Products_Color = Base.classes.products_color
 
 ### Abaixo, temos todos os endpoints requisitados
 
@@ -246,6 +248,24 @@ if __name__ == '__main__':
     #db.session.commit()
 
     #return '<h1>Imagem adicionada</h1>'
+
+## Vincula tamanho a um produto (debug)
+#@app.route('/add/s-to-p')
+#def add_product_size():
+    #vincular_size = Products_Sizes(sizes_id = '1', products_id = '10')
+    #db.session.add(vincular_size)
+    #db.session.commit()
+
+    #return '<h1>Size vinculado</h1>'
+
+## Vincula cor a um produto (debug)
+#@app.route('/add/cor-to-p')
+#def add_product_color():
+    #vincular_cor = Products_Color(colors_id = '2', products_id = '10')
+    #db.session.add(vincular_cor)
+    #db.session.commit()
+
+    #return '<h1>Cor vinculada</h1>'
 
 ##Roda o flask quando eu executo o código (da para colocar ele em debug)
 if __name__ == '__main__':
