@@ -46,6 +46,11 @@ Products_Images = Base.classes.products_images
 Users = Base.classes.users
 Favorites = Base.classes.favorites
 
+##Models extras pra ações específicas
+
+Sizes = Base.classes.sizes
+Colors = Base.classes.colors
+
 ### Abaixo, temos todos os endpoints requisitados
 
 ## Mostra todas as categorias presentes no banco. Vale constar que esse 'app.route' é literalmente a rota para acessar essa função.
@@ -194,22 +199,49 @@ if __name__ == '__main__':
 
 
 ## Adiciona uma categoria (debug)
-@app.route('/add/c')
-def add_category():
-    new_category = Categories(category_name = 'Gorros', category_description = 'Diversos gorros e várias marcas disponíveis.', category_image = 'https://raw.githubusercontent.com/ViniciusOkaeda/e-commerce-ra-mobile/refs/heads/main/src/Assets/gorro.png' )
-    db.session.add(new_category)
-    db.session.commit()
+#@app.route('/add/c')
+#def add_category():
+    #new_category = Categories(category_name = 'Gorros', category_description = 'Diversos gorros e várias marcas disponíveis.', category_image = 'https://raw.githubusercontent.com/ViniciusOkaeda/e-commerce-ra-mobile/refs/heads/main/src/Assets/gorro.png' )
+    #db.session.add(new_category)
+    #db.session.commit()
 
-    return '<h1>Categoria Inserida!</h1>'
+    #return '<h1>Categoria Inserida!</h1>'
 
 ## Adiciona um produto (debug)
-#@app.route('/add/p', methods = ['POST'])
+#@app.route('/add/p')
 #def add_product():
-    #new_product = Products(products_name = 'Produto 1', products_description = 'Descrição do Produto 1', products_price = 10.00, products_image = 'imagem do produto 1', products_category_id = 1)
+    #new_product = Products(products_name = 'Blazer Feminino', products_description = 'O Blazer Feminino Elegance é a peça essencial para quem deseja adicionar um toque de sofisticação ao seu guarda-roupa. Com um design impecável e corte moderno, esse blazer é perfeito para diversas ocasiões, do ambiente de trabalho a um jantar especial.', products_price = 179.99, products_image = 'https://raw.githubusercontent.com/ViniciusOkaeda/e-commerce-ra-mobile/refs/heads/main/src/Assets/jaqueta_destaque2.png', products_category_id = 2)
     #db.session.add(new_product)
     #db.session.commit()
 
     #return '<h1>Produto adicionado</h1>'
+
+## Adiciona um tamanho (debug)
+#@app.route('/add/s')
+#def add_size():
+    #new_size = Sizes(sizes_name = 'G')
+    #db.session.add(new_size)
+    #db.session.commit()
+
+    #return '<h1>Size adicionado</h1>'
+
+## Adiciona uma cor (debug)
+#@app.route('/add/cor')
+#def add_color():
+    #new_color = Colors(colors_name = '#90464A')
+    #db.session.add(new_color)
+    #db.session.commit()
+
+    #return '<h1>Cor adicionada</h1>'
+
+## Adiciona uma imagem (debug)
+#@app.route('/add/i')
+#def add_image():
+    #new_image = Products_Images(products_images = 'https://raw.githubusercontent.com/ViniciusOkaeda/e-commerce-ra-mobile/refs/heads/main/src/Assets/59181.jpg', products_id = '5')
+    #db.session.add(new_image)
+    #db.session.commit()
+
+    #return '<h1>Imagem adicionada</h1>'
 
 ##Roda o flask quando eu executo o código (da para colocar ele em debug)
 if __name__ == '__main__':
